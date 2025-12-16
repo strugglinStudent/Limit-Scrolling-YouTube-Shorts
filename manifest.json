@@ -7,7 +7,6 @@
   "icons":{ 
     "128" : "icon.png"
    },
-  "default_title": "anti-doom scrolling/",
   "content_scripts": [
     {
       "matches": ["*://www.youtube.com/*"],
