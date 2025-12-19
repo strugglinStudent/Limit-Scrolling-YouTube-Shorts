@@ -1,3 +1,10 @@
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.local.get(["enabled"], (res) => {
+    if (res.enabled === undefined) {
+      chrome.storage.local.set({ enabled: true });
+    }
+  });
+});
 chrome.action.onClicked.addListener(() => {
     chrome.storage.local.get('enabled', (res) => {
         const enabled = res.enabled !== false; // default ON
