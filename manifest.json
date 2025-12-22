@@ -2,15 +2,23 @@
   "manifest_version": 3,
   "name": "YouTube Shorts Limit",
   "version": "1.0",
-  "description": "Stop doom scrolling by reminding you every 5 Shorts.",
-  "permissions": ["activeTab", "scripting"],
-  "icons":{ 
-    "128" : "icon.png"
-   },
+  "description": "Stop scrolling by reminding you every 5 Shorts.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": ["*://www.youtube.com/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "icons": {
+    "128": "icon.png"
+  },
+  "action": {
+    "default_icon": {
+      "128" : "turnON.png"
+    }
+  }
 }

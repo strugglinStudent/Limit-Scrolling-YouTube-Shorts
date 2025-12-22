@@ -44,6 +44,9 @@ document.body.innerHTML = `
 `;
 }
 function track() {
+  chrome.storage.local.get(['enabled'], (res) => {
+    const enabled = res.enabled !== false; 
+    if (!enabled) return;
     if (!isShorts()) return;
 
     if (location.pathname !== lastPath) {
@@ -54,6 +57,7 @@ function track() {
             hardBlock();
         }
     }
+});
 }
 
-setInterval(track, 800);
+setInterval(track, 1000);
